@@ -1,0 +1,10 @@
+set linenumbers
+set autoindent
+set titlecolor bold,black,sky
+set numbercolor sky
+set functioncolor slate
+set promptcolor sky
+set selectedcolor black,sky
+set statuscolor sky
+set keycolor sky
+set tabsize 4

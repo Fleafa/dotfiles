@@ -1,0 +1,90 @@
+#      
+#      
+#     
+#   
+#  
+
+format = """
+[](fg:#1E1E2E bg:#C6AAE8)\
+$username\
+[](fg:#C6AAE8)\
+[](fg:#1E1E2E bg:#F0AFE1)\
+$directory\
+[](fg:#F0AFE1)\
+[](fg:#1E1E2E bg:#E28C8C)\
+$git_status\
+[](fg:#E28C8C)\
+[](fg:#1E1E2E bg:#F7C196)\
+$nodejs\
+[](fg:#F7C196)\
+[](fg:#1E1E2E bg:#EADDA0)\
+$battery\
+[](fg:#EADDA0)\
+[](fg:#1E1E2E bg:#B3E1A3)\
+$time\
+[](fg:#B3E1A3)\
+\n[> ](bold fg:#C6AAE8)"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = true
+style_user = "fg:black bg:#C6AAE8"
+style_root = "bold fg:red bg:#C6AAE8"
+format = '[ $user ]($style)'
+disabled = false
+
+[directory]
+style = "fg:black bg:#F0AFE1"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = ""
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = ""
+
+# ~/.config/starship.toml
+
+[battery]
+full_symbol = ''
+charging_symbol = ''
+discharging_symbol = ''
+unknown_symbol = ''
+format = '[ $symbol$percentage ]($style)'
+
+[[battery.display]]
+style = "fg:black bg:#EADDA0"
+threshold = 100
+
+[git_branch]
+symbol = ""
+style = "fg:black bg:#E28C8C"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "fg:black bg:#E28C8C"
+format = '[ $all_status$ahead_behind ]($style)'
+
+[nodejs]
+symbol = ""
+style = "fg:black bg:#F7C196"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "fg:black bg:#B3E1A3"
+format = '[ $time ]($style)'
